@@ -11,6 +11,7 @@ code {
 		"Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
     font-size: 10pt;
     font-weight: lighter;
+    line-height: 1.5;
   }
   html {
     box-sizing: border-box;

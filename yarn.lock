@@ -1340,6 +1340,11 @@ storyblok-js-client@^4.2.0:
   resolved "https://registry.yarnpkg.com/storyblok-js-client/-/storyblok-js-client-4.3.1.tgz#fa17e9ce47cc827e7d835481a5f77d3d44580e19"
   integrity sha512-kdv7G0+0BsCzbVRjAnRC00GPRRWfP0YK0yE0gUj3waEc2ekwxV9iHQBR9cRxz3YYk/hLWn3zJg8lTTrQmzQsdg==
 
+storyblok-rich-text-react-renderer@^2.5.3:
+  version "2.5.3"
+  resolved "https://registry.yarnpkg.com/storyblok-rich-text-react-renderer/-/storyblok-rich-text-react-renderer-2.5.3.tgz#8024fc084dcb5827a661d84e4e559185cda24442"
+  integrity sha512-0ZbgSXyxRZjfVse0tfV8Nsf2OVpWH6TAOgG1A6KtgwPQjIxpH+nStm7MtzLclMYkEfB89GJMYh0BsBZ3JlMSEA==
+
 styled-components@^5.2.1:
   version "5.3.5"
   resolved "https://registry.yarnpkg.com/styled-components/-/styled-components-5.3.5.tgz#a750a398d01f1ca73af16a241dec3da6deae5ec4"

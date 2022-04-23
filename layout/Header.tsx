@@ -8,7 +8,7 @@ export default function Header({ story }: { story: Story }) {
 			<Link href={`/`}>
 				<Title>Nika van Berkel</Title>
 			</Link>
-			<Link href={"/about"}>
+			<Link href={"/about/detail"}>
 				<Title>About</Title>
 			</Link>
 		</HeaderContainer>
@@ -18,6 +18,7 @@ export default function Header({ story }: { story: Story }) {
 const HeaderContainer = styled.header`
 	display: flex;
 	justify-content: space-between;
+	padding: 0 5px;
 `;
 
 const Title = styled.p`

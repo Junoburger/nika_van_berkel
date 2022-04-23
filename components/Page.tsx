@@ -1,21 +1,11 @@
 import { storyblokEditable, StoryblokComponent } from "@storyblok/react";
-import { useEffect } from "react";
 
-const Page = ({ blok }) => {
-	return (
-		<div {...storyblokEditable(blok)}>
-			{blok.body.content.map((nestedContent) => {
-				console.log(nestedContent.content);
-				return nestedContent.content ? (
-					<span>{nestedContent.content.map((item) => item.text)}</span>
-				) : (
-					<span>
-						<br />
-					</span>
-				);
-			})}
-		</div>
-	);
-};
+const Page = ({ blok }) => (
+	<main {...storyblokEditable(blok)}>
+		{blok.body.map((nestedBlok) => (
+			<StoryblokComponent blok={nestedBlok} key={nestedBlok._uid} />
+		))}
+	</main>
+);
 
 export default Page;

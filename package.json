@@ -19,6 +19,7 @@
 		"react": "^18.0.0",
 		"react-dom": "^18.0.0",
 		"react-multi-carousel": "^2.6.1",
+		"storyblok-rich-text-react-renderer": "^2.5.3",
 		"styled-components": "^5.2.1"
 	},
 	"devDependencies": {
