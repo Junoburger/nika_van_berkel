@@ -7,6 +7,7 @@ import Icon from "../components/Icon";
 import ProjectsContainer from "../components/ProjectsContainer";
 import Project from "../components/Project";
 import { useEffect } from "react";
+import BasicLayout from "../layout/Basic";
 
 const components = {
 	feature: Feature,
@@ -38,9 +39,9 @@ function MyApp({ Component, pageProps }) {
 	}, []);
 
 	return (
-		<>
+		<BasicLayout>
 			<Component {...pageProps} />
-		</>
+		</BasicLayout>
 	);
 }
 

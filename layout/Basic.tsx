@@ -1,9 +1,16 @@
 import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
-    // this is the shared style
+  // this is the shared style
+code {
+	font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
   body {
 	margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu",
+		"Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+    font-size: 10pt;
+    font-weight: lighter;
   }
   html {
     box-sizing: border-box;
@@ -13,8 +20,7 @@ export const GlobalStyle = createGlobalStyle`
   *::before,
   *::after {
     box-sizing: inherit;
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight:400;
+	font-family: "Helvetica", "Arial", sans-serif;
   }
 
   a,

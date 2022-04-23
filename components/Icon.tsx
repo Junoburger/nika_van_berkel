@@ -1,19 +1,20 @@
 import { storyblokEditable } from "@storyblok/react";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
-import styled from "styled-components";
+import { useEffect, useState } from "react";
+import styled, { css } from "styled-components";
 
 const Icon = ({ blok }) => {
 	const [displayTitle, setDisplayTitle] = useState(false);
-
+	console.log(blok.url_parameter);
 	return (
 		<ProjectContainer>
 			<Link href={`/projects/${blok.url_parameter}`}>
 				<div>
 					{blok.icon.filename ? (
-						<div>
-							{/* <ImageWrapper> */}
+						<ProjectEntryPointWrapper
+							isBookholder={blok.project_name.toLowerCase().includes("bookholder")} // TODO: Ask Nika for a correctly sized image
+						>
 							<img
 								onMouseOut={() => setDisplayTitle(false)}
 								onMouseEnter={() => setDisplayTitle(true)}
@@ -24,8 +25,7 @@ const Icon = ({ blok }) => {
 							/>
 
 							<Title displayTitle={displayTitle}>{blok.project_name}</Title>
-							{/* </ImageWrapper> */}
-						</div>
+						</ProjectEntryPointWrapper>
 					) : (
 						<div>placeholder</div>
 					)}
@@ -37,24 +37,27 @@ const Icon = ({ blok }) => {
 
 export default Icon;
 
-const ImageWrapper = styled.div`
-	/* display: flex; */
-	/* flex-direction: column; */
-	/* flex-wrap: wrap; */
-	/* text-align: center; */
-	/* height: 115%; */
-	/* width: 110%; */
-	/* justify-content: center; */
-	/* text-align: center; */
+const ProjectEntryPointWrapper = styled.div<{ isBookholder: boolean }>`
+	display: flex;
+	flex-direction: column;
+	text-align: center;
 	img {
-		/* border: 5px solid black; */
-		/* max-width: 15rem;
+		cursor: pointer;
+		max-width: 15rem;
 		max-height: 15rem;
-		margin: 3rem; */
+		margin: 3rem;
+		${(props) =>
+			props.isBookholder // FIXME: this is a hack to get the bookholder to be the same size as the other projects
+				? css`
+						object-fit: cover;
+				  `
+				: css`
+						object-fit: contain;
+				  `}
 	}
 `;
 
-export const Title = styled.div<{ displayTitle: boolean }>`
+const Title = styled.div<{ displayTitle: boolean }>`
 	color: ${(props) => (props.displayTitle ? "black" : "white")};
 `;
 

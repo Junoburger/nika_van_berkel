@@ -1,14 +1,19 @@
 import { storyblokEditable, StoryblokComponent } from "@storyblok/react";
+import styled from "styled-components";
 
 const ProjectsContainer = ({ blok }) => {
-	console.log(blok.body);
 	return (
-		<main {...storyblokEditable(blok)}>
+		<MainContainer {...storyblokEditable(blok)}>
 			{blok.body.map((nestedBlok) => (
 				<StoryblokComponent blok={nestedBlok} key={nestedBlok._uid} />
 			))}
-		</main>
+		</MainContainer>
 	);
 };
 
 export default ProjectsContainer;
+
+const MainContainer = styled.main`
+	display: flex;
+	flex-flow: row wrap; ;
+`;

@@ -7,4 +7,8 @@ module.exports = {
 	images: {
 		domains: ["a.storyblok.com"],
 	},
+	compiler: {
+		// Enables the styled-components SWC transform
+		styledComponents: true,
+	},
 };
