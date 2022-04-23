@@ -4,15 +4,23 @@ import { Story } from "../pages";
 
 export default function Header({ story }: { story: Story }) {
 	return (
-		<header>
+		<HeaderContainer>
 			<Link href={`/`}>
 				<Title>Nika van Berkel</Title>
 			</Link>
-		</header>
+			<Link href={"/about"}>
+				<Title>About</Title>
+			</Link>
+		</HeaderContainer>
 	);
 }
 
+const HeaderContainer = styled.header`
+	display: flex;
+	justify-content: space-between;
+`;
+
 const Title = styled.p`
 	cursor: pointer;
-	margin: 15px;
+	margin: 15px 5px;
 `;

@@ -6,7 +6,7 @@ import styled, { css } from "styled-components";
 
 const Icon = ({ blok }) => {
 	const [displayTitle, setDisplayTitle] = useState(false);
-	console.log(blok.url_parameter);
+
 	return (
 		<ProjectContainer>
 			<Link href={`/projects/${blok.url_parameter}`}>

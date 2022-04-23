@@ -1,18 +1,16 @@
 // import { useRouter } from "next/router";
 import { storyblokInit, apiPlugin } from "@storyblok/react";
-import Feature from "../components/Feature";
 import Grid from "../components/Grid";
-import Teaser from "../components/Teaser";
 import Icon from "../components/Icon";
 import ProjectsContainer from "../components/ProjectsContainer";
 import Project from "../components/Project";
 import { useEffect } from "react";
 import BasicLayout from "../layout/Basic";
+import Page from "../components/Page";
 
 const components = {
-	feature: Feature,
+	page: Page,
 	grid: Grid,
-	teaser: Teaser,
 	projects_container: ProjectsContainer,
 	project: Project,
 	icon: Icon,

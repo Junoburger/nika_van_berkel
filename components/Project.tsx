@@ -1,17 +1,28 @@
-import { storyblokEditable, StoryblokComponent } from "@storyblok/react";
-// import Image from "next/image";
-import Link from "next/link";
+import { storyblokEditable } from "@storyblok/react";
 import { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 
 const Project = ({ blok }) => {
 	const mainRef = useRef(null);
 	const [nextImage, setNextImage] = useState(0);
+	const [animate, setAnimate] = useState(false);
 
 	useEffect(() => {
 		const updateCarousel = () => {
-			nextImage !== blok.images.length && setNextImage(nextImage + 1);
-			nextImage === blok.images.length && setNextImage(0);
+			if (nextImage !== blok.images.length) {
+				setAnimate(true);
+				setTimeout(() => {
+					setNextImage(nextImage + 1);
+					setAnimate(false);
+				}, 200);
+			}
+			if (nextImage === blok.images.length) {
+				setAnimate(true);
+				setTimeout(() => {
+					setNextImage(0);
+					setAnimate(false);
+				}, 300);
+			}
 		};
 
 		mainRef.current?.addEventListener("click", updateCarousel, false);
@@ -22,11 +33,11 @@ const Project = ({ blok }) => {
 	return (
 		<MainContainer {...storyblokEditable(blok)} ref={mainRef}>
 			<>
-				<ContentWrapper>
+				<ContentWrapper animateImageFade={animate}>
 					{nextImage === blok.images.length && (
 						<>
 							<Content>
-								<h3>{blok.header}</h3>
+								<Title isHeader>{blok.header}</Title>
 								{blok.article.content[0].content.map((entry) => {
 									return entry.text;
 								})}
@@ -43,7 +54,7 @@ const Project = ({ blok }) => {
 								width={500}
 								height={700}
 							/>
-							<h3>{blok.header}</h3>
+							<Title>{blok.header}</Title>
 						</>
 					)}
 				</ContentWrapper>
@@ -60,11 +71,48 @@ const MainContainer = styled.div`
 	}
 `;
 
-const ContentWrapper = styled.div`
-	width: 500px;
-	height: 700px;
+const ContentWrapper = styled.div<{ animateImageFade: boolean }>`
+	height: 100%;
+	margin-top: -10%;
+	img {
+		cursor: pointer;
+		animation: ${(props) =>
+			props.animateImageFade ? "fadeOut forwards 0.25s" : "fadeIn forwards 0.25s"};
+	}
+
+	@keyframes fadeOut {
+		from {
+			visibility: visible;
+			opacity: 1;
+			transition: opacity 0.2s linear;
+		}
+
+		to {
+			visibility: hidden;
+			opacity: 0;
+			transition: visibility 0s 0.2s, opacity 0.2s linear;
+		}
+	}
+	@keyframes fadeIn {
+		from {
+			visibility: hidden;
+			opacity: 0;
+			transition: visibility 0s 0.2s, opacity 0.2s linear;
+		}
+		to {
+			visibility: visible;
+			opacity: 1;
+			transition: opacity 0.2s linear;
+		}
+	}
 `;
 
 const Content = styled.div`
 	margin: 50% 0; ;
+`;
+
+const Title = styled.p<{ isHeader?: boolean }>`
+	text-align: ${(props) => (props.isHeader ? "" : "center")};
+	padding: 2%;
+	font-size: 10pt;
 `;
