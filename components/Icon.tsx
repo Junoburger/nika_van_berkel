@@ -12,7 +12,7 @@ const Icon = ({ blok }) => {
 			<Link href={`/projects/${blok.url_parameter}`}>
 				<div>
 					{blok.icon.filename ? (
-						<Link href={`/projects/test1`}>
+						<Link href={`/projects/${blok.url_parameter}`}>
 							<div>
 								<ImageWrapper>
 									<Image
