@@ -15,5 +15,6 @@ export default ProjectsContainer;
 
 const MainContainer = styled.main`
 	display: flex;
-	flex-flow: row wrap; ;
+	flex-flow: row wrap;
+	justify-content: space-around;
 `;

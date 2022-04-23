@@ -41,11 +41,12 @@ const ProjectEntryPointWrapper = styled.div<{ isBookholder: boolean }>`
 	display: flex;
 	flex-direction: column;
 	text-align: center;
+	margin: 0 3rem;
 	img {
 		cursor: pointer;
 		max-width: 15rem;
 		max-height: 15rem;
-		margin: 3rem;
+		margin: 3.5rem;
 		${(props) =>
 			props.isBookholder // FIXME: this is a hack to get the bookholder to be the same size as the other projects
 				? css`
