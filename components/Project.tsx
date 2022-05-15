@@ -14,14 +14,14 @@ const Project = ({ blok }) => {
 				setTimeout(() => {
 					setNextImage(nextImage + 1);
 					setAnimate(false);
-				}, 200);
+				}, 500);
 			}
 			if (nextImage === blok.images.length) {
 				setAnimate(true);
 				setTimeout(() => {
 					setNextImage(0);
 					setAnimate(false);
-				}, 300);
+				}, 500);
 			}
 		};
 
@@ -41,8 +41,11 @@ const Project = ({ blok }) => {
 								{blok.article.content[0].content.map((entry) => {
 									return entry.text;
 								})}
+								<br />
+								<br />
 
 								<span>{blok.subtext}</span>
+								<span>{blok.subtext_author}</span>
 							</Content>
 						</>
 					)}
@@ -84,13 +87,13 @@ const ContentWrapper = styled.div<{ animateImageFade: boolean }>`
 		from {
 			visibility: visible;
 			opacity: 1;
-			transition: opacity 0.2s linear;
+			transition: opacity 0.5s linear;
 		}
 
 		to {
 			visibility: hidden;
 			opacity: 0;
-			transition: visibility 0s 0.2s, opacity 0.2s linear;
+			transition: visibility 0s 0.5s, opacity 0.5s linear;
 		}
 	}
 	@keyframes fadeIn {
@@ -108,11 +111,16 @@ const ContentWrapper = styled.div<{ animateImageFade: boolean }>`
 `;
 
 const Content = styled.div`
-	margin: 50% 0; ;
+	margin: 50% 0;
+	display: flex;
+	flex-direction: column;
+	text-align: left;
+	cursor: pointer;
 `;
 
 const Title = styled.p<{ isHeader?: boolean }>`
-	text-align: ${(props) => (props.isHeader ? "" : "center")};
+	text-align: ${(props) => (props.isHeader ? "left" : "center")};
+	margin-left: ${(props) => (props.isHeader ? "-15px" : "0")};
 	padding: 2%;
 	font-size: 10pt;
 `;

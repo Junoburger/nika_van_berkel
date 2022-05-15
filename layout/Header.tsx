@@ -5,9 +5,9 @@ import { Story } from "../pages";
 export default function Header({ story }: { story: Story }) {
 	return (
 		<HeaderContainer>
-			<Link href={`/`}>
-				<Title>Nika van Berkel</Title>
-			</Link>
+			<Title>
+				<Link href={`/`}>Nika van Berkel</Link>
+			</Title>
 			<Link href={"/about/detail"}>
 				<Title>About</Title>
 			</Link>
@@ -24,4 +24,7 @@ const HeaderContainer = styled.header`
 const Title = styled.p`
 	cursor: pointer;
 	margin: 15px 5px;
+	a:hover {
+		color: black;
+	}
 `;

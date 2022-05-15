@@ -41,7 +41,7 @@ const ProjectEntryPointWrapper = styled.div<{ isBookholder: boolean }>`
 	display: flex;
 	flex-direction: column;
 	text-align: center;
-	margin: 0 3rem;
+	/* margin: 0 3rem; */
 	img {
 		cursor: pointer;
 		max-width: 15rem;

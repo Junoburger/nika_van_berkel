@@ -14,7 +14,6 @@ const ProjectsContainer = ({ blok }) => {
 export default ProjectsContainer;
 
 const MainContainer = styled.main`
-	display: flex;
-	flex-flow: row wrap;
-	justify-content: space-around;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(300px, 0.5fr));
 `;

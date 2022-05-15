@@ -1,7 +1,7 @@
 import Head from "next/head";
 
 export default function MetaHead({ ...props }) {
-	// FIXME: speficy props
+	// FIXME: specify props
 	return (
 		<Head>
 			<title>{props.title}</title>

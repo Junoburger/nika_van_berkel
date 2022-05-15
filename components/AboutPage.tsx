@@ -64,8 +64,8 @@ export default AboutPage;
 
 const AboutPageContainer = styled.div`
 	text-align: left;
-	margin-top: -15%;
-	margin-left: -50%;
+	/* margin-top: -5%; */
+	/* margin-left: -520px; */
 	padding: 25px;
 	a {
 		color: blue;
