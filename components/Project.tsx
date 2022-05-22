@@ -32,36 +32,29 @@ const Project = ({ blok }) => {
 
 	return (
 		<MainContainer {...storyblokEditable(blok)} ref={mainRef}>
-			<>
-				<ContentWrapper animateImageFade={animate}>
-					{nextImage === blok.images.length && (
-						<>
-							<Content>
-								<Title isHeader>{blok.header}</Title>
-								{blok.article.content[0].content.map((entry) => {
-									return entry.text;
-								})}
-								<br />
-								<br />
-
-								<span>{blok.subtext}</span>
-								<span>{blok.subtext_author}</span>
-							</Content>
-						</>
-					)}
-					{blok.images[nextImage] !== undefined && nextImage !== blok.images.length && (
-						<>
-							<img
-								src={blok.images[nextImage].filename}
-								alt={blok.images[nextImage].alt}
-								width={500}
-								height={700}
-							/>
-							<Title>{blok.header}</Title>
-						</>
-					)}
-				</ContentWrapper>
-			</>
+			<ContentWrapper animateImageFade={animate}>
+				{nextImage === blok.images.length && (
+					<Content>
+						<Title isHeader>{blok.header}</Title>
+						{blok.article.content[0].content.map((entry) => {
+							return entry.text;
+						})}
+						<br />
+						<br />
+						<span>{blok.subtext}</span>
+						<span>{blok.subtext_author}</span>
+					</Content>
+				)}
+				{blok.images[nextImage] !== undefined && nextImage !== blok.images.length && (
+					<>
+						<img
+							src={blok.images[nextImage].filename}
+							alt={blok.images[nextImage].alt}
+						/>
+						<Title>{blok.header}</Title>
+					</>
+				)}
+			</ContentWrapper>
 		</MainContainer>
 	);
 };
@@ -81,6 +74,8 @@ const ContentWrapper = styled.div<{ animateImageFade: boolean }>`
 		cursor: pointer;
 		animation: ${(props) =>
 			props.animateImageFade ? "fadeOut forwards 0.45s" : "fadeIn forwards 0.45s"};
+		max-width: 500px;
+		max-height: 700px;
 	}
 
 	@keyframes fadeOut {
@@ -116,6 +111,7 @@ const Content = styled.div`
 	flex-direction: column;
 	text-align: left;
 	cursor: pointer;
+	width: 526px;
 `;
 
 const Title = styled.p<{ isHeader?: boolean }>`
