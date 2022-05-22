@@ -10,7 +10,7 @@ const Icon = ({ blok }) => {
 	return (
 		<ProjectContainer>
 			<Link href={`/projects/${blok.url_parameter}`}>
-				<div>
+				<div id="ICON_WRAPPER">
 					{blok.icon.filename ? (
 						<ProjectEntryPointWrapper
 							isBookholder={blok.project_name.toLowerCase().includes("bookholder")} // TODO: Ask Nika for a correctly sized image
@@ -27,7 +27,9 @@ const Icon = ({ blok }) => {
 							<Title displayTitle={displayTitle}>{blok.project_name}</Title>
 						</ProjectEntryPointWrapper>
 					) : (
-						<div>placeholder</div>
+						<div style={{ fontSize: "200%" }}>
+							Something went wrong, please contact Nika.
+						</div>
 					)}
 				</div>
 			</Link>
@@ -41,12 +43,12 @@ const ProjectEntryPointWrapper = styled.div<{ isBookholder: boolean }>`
 	display: flex;
 	flex-direction: column;
 	text-align: center;
-	/* margin: 0 3rem; */
+	justify-content: center;
 	img {
 		cursor: pointer;
-		max-width: 15rem;
-		max-height: 15rem;
-		margin: 3.5rem;
+		max-width: 12.5rem;
+		max-height: 12.5rem;
+		margin: 2.5rem;
 		${(props) =>
 			props.isBookholder // FIXME: this is a hack to get the bookholder to be the same size as the other projects
 				? css`
@@ -62,4 +64,6 @@ const Title = styled.div<{ displayTitle: boolean }>`
 	color: ${(props) => (props.displayTitle ? "black" : "white")};
 `;
 
-const ProjectContainer = styled.div``;
+const ProjectContainer = styled.div`
+	display: flex;
+`;

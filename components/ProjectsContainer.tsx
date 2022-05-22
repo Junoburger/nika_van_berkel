@@ -15,5 +15,9 @@ export default ProjectsContainer;
 
 const MainContainer = styled.main`
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(300px, 0.5fr));
+	grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+	grid-gap: 25px;
+	grid-auto-rows: auto;
+	overflow-y: auto;
+	overflow-x: hidden;
 `;

@@ -14,14 +14,14 @@ const Project = ({ blok }) => {
 				setTimeout(() => {
 					setNextImage(nextImage + 1);
 					setAnimate(false);
-				}, 500);
+				}, 1000);
 			}
 			if (nextImage === blok.images.length) {
 				setAnimate(true);
 				setTimeout(() => {
 					setNextImage(0);
 					setAnimate(false);
-				}, 500);
+				}, 1000);
 			}
 		};
 
@@ -80,32 +80,32 @@ const ContentWrapper = styled.div<{ animateImageFade: boolean }>`
 	img {
 		cursor: pointer;
 		animation: ${(props) =>
-			props.animateImageFade ? "fadeOut forwards 0.25s" : "fadeIn forwards 0.25s"};
+			props.animateImageFade ? "fadeOut forwards 0.45s" : "fadeIn forwards 0.45s"};
 	}
 
 	@keyframes fadeOut {
 		from {
 			visibility: visible;
 			opacity: 1;
-			transition: opacity 0.5s linear;
+			transition: opacity 0.4s linear;
 		}
 
 		to {
 			visibility: hidden;
 			opacity: 0;
-			transition: visibility 0s 0.5s, opacity 0.5s linear;
+			transition: visibility 0s 0.4s, opacity 0.4s linear;
 		}
 	}
 	@keyframes fadeIn {
 		from {
 			visibility: hidden;
 			opacity: 0;
-			transition: visibility 0s 0.2s, opacity 0.2s linear;
+			transition: visibility 0s 0.4s, opacity 0.4s linear;
 		}
 		to {
 			visibility: visible;
 			opacity: 1;
-			transition: opacity 0.2s linear;
+			transition: opacity 0.4s linear;
 		}
 	}
 `;
