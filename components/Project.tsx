@@ -68,39 +68,39 @@ const MainContainer = styled.div`
 `;
 
 const ContentWrapper = styled.div<{ animateImageFade: boolean }>`
-	height: 100%;
 	margin-top: -10%;
 	img {
+		max-width: 700px;
+		max-height: 700px;
+
 		cursor: pointer;
 		animation: ${(props) =>
-			props.animateImageFade ? "fadeOut forwards 0.45s" : "fadeIn forwards 0.45s"};
-		max-width: 500px;
-		max-height: 700px;
+			props.animateImageFade ? "fadeOut forwards 1s" : "fadeIn forwards 1s"};
 	}
 
 	@keyframes fadeOut {
 		from {
 			visibility: visible;
 			opacity: 1;
-			transition: opacity 0.4s linear;
+			transition: opacity 1s linear;
 		}
 
 		to {
 			visibility: hidden;
 			opacity: 0;
-			transition: visibility 0s 0.4s, opacity 0.4s linear;
+			transition: visibility 1.5s 1s, opacity 1s linear;
 		}
 	}
 	@keyframes fadeIn {
 		from {
 			visibility: hidden;
 			opacity: 0;
-			transition: visibility 0s 0.4s, opacity 0.4s linear;
+			transition: visibility 1.5s 1s, opacity 1s linear;
 		}
 		to {
 			visibility: visible;
 			opacity: 1;
-			transition: opacity 0.4s linear;
+			transition: opacity 1s linear;
 		}
 	}
 `;
