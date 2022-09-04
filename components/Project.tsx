@@ -5,23 +5,16 @@ import styled from "styled-components";
 const Project = ({ blok }) => {
 	const mainRef = useRef(null);
 	const [nextImage, setNextImage] = useState(0);
-	const [animate, setAnimate] = useState(false);
 
 	useEffect(() => {
 		const updateCarousel = () => {
+			// Increase images index
 			if (nextImage !== blok.images.length) {
-				setAnimate(true);
-				setTimeout(() => {
-					setNextImage(nextImage + 1);
-					setAnimate(false);
-				}, 1000);
+				setNextImage(nextImage + 1);
 			}
+			// IF about text was the previous "blok" then go back to index 0
 			if (nextImage === blok.images.length) {
-				setAnimate(true);
-				setTimeout(() => {
-					setNextImage(0);
-					setAnimate(false);
-				}, 1000);
+				setNextImage(0);
 			}
 		};
 
@@ -32,7 +25,7 @@ const Project = ({ blok }) => {
 
 	return (
 		<MainContainer {...storyblokEditable(blok)} ref={mainRef}>
-			<ContentWrapper animateImageFade={animate}>
+			<ContentWrapper>
 				{nextImage === blok.images.length && (
 					<Content>
 						<Title isHeader>{blok.header}</Title>
@@ -47,7 +40,7 @@ const Project = ({ blok }) => {
 				)}
 				{blok.images[nextImage] !== undefined && nextImage !== blok.images.length && (
 					<>
-						<img
+						<AnimatedImage
 							src={blok.images[nextImage].filename}
 							alt={blok.images[nextImage].alt}
 						/>
@@ -67,42 +60,15 @@ const MainContainer = styled.div`
 	}
 `;
 
-const ContentWrapper = styled.div<{ animateImageFade: boolean }>`
+const ContentWrapper = styled.div`
 	margin-top: -10%;
-	img {
-		max-width: 700px;
-		max-height: 700px;
+`;
 
-		cursor: pointer;
-		animation: ${(props) =>
-			props.animateImageFade ? "fadeOut forwards 1s" : "fadeIn forwards 1s"};
-	}
+const AnimatedImage = styled.img`
+	max-width: 700px;
+	max-height: 700px;
 
-	@keyframes fadeOut {
-		from {
-			visibility: visible;
-			opacity: 1;
-			transition: opacity 1s linear;
-		}
-
-		to {
-			visibility: hidden;
-			opacity: 0;
-			transition: visibility 1.5s 1s, opacity 1s linear;
-		}
-	}
-	@keyframes fadeIn {
-		from {
-			visibility: hidden;
-			opacity: 0;
-			transition: visibility 1.5s 1s, opacity 1s linear;
-		}
-		to {
-			visibility: visible;
-			opacity: 1;
-			transition: opacity 1s linear;
-		}
-	}
+	cursor: pointer;
 `;
 
 const Content = styled.div`
