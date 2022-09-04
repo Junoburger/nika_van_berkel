@@ -67,7 +67,6 @@ const ContentWrapper = styled.div`
 const AnimatedImage = styled.img`
 	max-width: 700px;
 	max-height: 700px;
-
 	cursor: pointer;
 `;
 
