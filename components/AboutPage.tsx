@@ -56,7 +56,6 @@ const AboutPage = ({ blok }) => {
 			</Paragraph>
 			<br />
 			<br />
-			<span>Publications:</span>
 			<RichText document={blok.project_list} />
 		</AboutPageContainer>
 	);
