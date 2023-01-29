@@ -28,7 +28,7 @@ function MyApp({ Component, pageProps }) {
 	useEffect(() => {
 		const contextMenu = (ev) => {
 			ev.preventDefault();
-			console.log("contextmenu");
+			// console.log("contextmenu");
 			return false;
 		};
 		document.addEventListener("contextmenu", contextMenu, false);
