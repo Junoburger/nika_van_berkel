@@ -57,7 +57,7 @@ export async function getServerSideProps(context) {
 	const shouldLoadDraft = context.preview || insideStoryblok;
 
 	let slug = "home";
-
+	// test build
 	let sbParams: ISbStoriesParams = {
 		// version: "published", // or 'draft'
 		token: process.env.STORYBLOK_API_KEY,
