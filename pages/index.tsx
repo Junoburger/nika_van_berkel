@@ -1,4 +1,9 @@
-import { useStoryblokState, getStoryblokApi, StoryblokComponent } from "@storyblok/react";
+import {
+	useStoryblokState,
+	getStoryblokApi,
+	StoryblokComponent,
+	ISbStoriesParams,
+} from "@storyblok/react";
 import MetaHead from "../components/MetaHead";
 import Header from "../layout/Header";
 
@@ -53,7 +58,7 @@ export async function getServerSideProps(context) {
 
 	let slug = "home";
 
-	let sbParams = {
+	let sbParams: ISbStoriesParams = {
 		version: "published", // or 'draft'
 		token: process.env.STORYBLOK_API_KEY,
 	};
