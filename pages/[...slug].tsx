@@ -20,12 +20,12 @@ export default function Page({ story }) {
 export async function getStaticProps({ params }) {
 	let slug = params.slug ? params.slug.join("/") : "home";
 
-	// let sbParams: storyblock.ISbStoriesParams = {
-	// 	version: 'draft', // or 'published'
-	// };
+	let sbParams: storyblock.ISbStoriesParams = {
+		version: "published", // or 'draft'
+	};
 
 	const storyblokApi = storyblock.getStoryblokApi();
-	let { data } = await storyblokApi.get(`cdn/stories/${slug}`);
+	let { data } = await storyblokApi.get(`cdn/stories/${slug}`, sbParams);
 
 	return {
 		props: {
