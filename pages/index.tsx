@@ -59,7 +59,7 @@ export async function getServerSideProps(context) {
 	let slug = "home";
 
 	let sbParams: ISbStoriesParams = {
-		version: "published", // or 'draft'
+		// version: "published", // or 'draft'
 		token: process.env.STORYBLOK_API_KEY,
 	};
 
