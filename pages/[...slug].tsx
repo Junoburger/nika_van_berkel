@@ -20,7 +20,7 @@ export default function Page({ story }) {
 export async function getStaticProps({ params }) {
 	let slug = params.slug ? params.slug.join("/") : "home";
 
-	let sbParams: any = {
+	let sbParams: storyblock.ISbStoriesParams = {
 		version: "draft", // or 'published'
 	};
 
